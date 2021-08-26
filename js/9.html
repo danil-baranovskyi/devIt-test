@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+    <script>
+        function isFloat(el){
+            return Number(el) === el && el % 1 !== 0;
+        }
+        function isBool(el){
+            return typeof(el) === "boolean" ? true : false;
+        }
+        function isNum(el){
+            return typeof(el) === "number" ? true : false;
+        }
+        function isFunc(el){
+            return typeof(el) === "function" ? true : false;
+        }
+        function isStr(el) {
+            return typeof(el) === "string" ? true : false;
+        }
+
+        // method = 'check' / 'transform'
+        // check - check the type of el
+        // transform - transform type into
+        function manipulation(el, type, method) {
+            switch (type) {
+                case 'string':
+                    return method == 'check' ? isStr(el) :  String(el);
+                    break;
+                case 'number':
+                    return method == 'check' ? isNum(el) :  Number(el);
+                    break;
+                case 'int':
+                    return method == 'check' ? Number.isIntager(el) :  Number(el);
+                    break;
+                case 'float':
+                    return method == 'check' ? isFloat(el) :  Number(el);
+                    break;
+                case 'boolean':
+                    return method == 'check' ? isBool(el) :  Boolean(el);
+                    break;
+                case 'function':
+                    return method == 'check' ? isFunc(el) :  new Function(String(el));
+                    break;
+                case 'array':
+                    return method == 'check' ? Array.isArray(el) : new Array(String(el));
+                    break;
+                default:
+                    return false;
+                    break;
+            }
+        };
+
+        let testData4 = [{"name":"Vasya","email":"vasya@example.com","age":20},{"name":"Dima","email":"dima@example.com","age":34},{"name":"Colya","email":"colya@example.com","age":46},{"name":"Misha","email":"misha@example.com","age":16},{"name":"Ashan","email":"ashan@example.com","age":99},{"name":"Rafshan","email":"rafshan@example.com","age":11},1,2,1990,85,24,"Vasya","colya@example.com","Rafshan","ashan@example.com",true,false,[[[[1,2,1990,85,24,"Vasya","colya@example.com","Rafshan","ashan@example.com",true,false,[{"name":"Rafshan","email":"rafshan@example.com","age":11}]]]]]]
+
+        let testData = [1, 2, 1990, 85, 24, 24.2, 34.1, '43.43232', "Vasya", "colyaexample.com", "Rafshan", "ashanexample.com", true, false];
+
+        function normalize(array, type, transform = false) {
+            if(!transform){
+                return array.filter(function(el) {
+                    return checkType(el, type, 'check');
+                });
+            }else{
+                
+                //сначала фильтрую потом уже изменяю
+                return array.filter(function (el, index) {
+                    let ga = manipulation(el, type, 'transform');
+                    return Number.isNaN(ga) ? false : true;
+                }).map(function (el) {
+                    return manipulation(el, type, 'transform');
+                });
+            }
+        }
+
+        let obj = {
+            'age' : 32,
+        }
+       
+        console.log(obj.age);
+        // console.log();
+        // console.log(normalize(testData, 'float'));
+        //my transform func is not friandly to programmer. Last one have to be carefull with data that he gives to my func, ga-ga-ga. 
+        // my sollution is awful, but its the best that i could created
+        // and i dont know how make these manipulation with objects, especially, inserted
+        // console.log(normalize(testData, 'number', true));
+        // я тут натворил конечно да, по-любому можно сделать акуратнее, но я не могу(
+    </script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevIt Test</title>
+</head>
+<body>
+    <script>
+
+        function paralell(argArr, callback) {
+            
+            let results = [];
+
+            for(let i = 0; i < argArr.length; i++){
+                results.push(argArr[i]);
+            }
+
+            callback(results);
+        }
+
+        let a = function(one, two) {
+            return one + two
+        }
+        let b = function() {
+            return false;
+        }
+
+        paralell([a(1 ,2), b()], function(results) {
+            console.log(results); // [3, false]
+        });
+
+        //[[a, [1, 2]], [b]] - крайне не понимаю почему мы передаём данные в функцию в таком формате, это ведь не удобно и не понятно, и использование этих данных в разы сложнее(если я в корне не прав очень рад буду обьяснению почему именно так)
+    </script>
+</body>
+</html>

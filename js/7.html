@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+    <script>
+        
+        let testData = [1, 2, 1990, 85, 24, "Vasya", "colya@example.com", "Rafshan", "ashan@example.com", true, false];
+
+        function array_find(array, query){
+           
+            return array.filter(function(el) {
+                // let response = String(el).indexOf(query) > -1 || String(el).match(query) ?  String(el) : false;
+                // console.log(response);
+                return  String(el).indexOf(query) > -1 || String(el).match(query);
+                
+            })[0];
+        }
+        
+
+
+        // String(el).indexOf(query) > -1 || String(el).match(query)
+
+        // let some = array_find(testData, "fdfsd");
+        // // console.log(String("2".match(/^raf.*/i).input));
+        // console.log(testData.includes(true));
+        // console.log(some);
+        console.log(array_find(testData, /^as.*/i));
+        console.log(array_find(testData, "Rafshan"));
+
+        // Thanks for Task ^_^
+        
+        
+        // I hate this task, reg expressions dont use as a aurgument of func in quotes =) :) :) :D, around two hours for understending it
+        </script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevIt Test</title>
+</head>
+<body>
+    <script>
+
+        function array_pluck(array, path) {
+            let result = [];
+            let splitedPath = path.split('.');
+
+            if (!path.includes('.')) {
+                for (const iterator of array) {
+                    result.push(iterator[splitedPath[0]]);
+                }   
+            }else{
+                for (const iterator of array) {
+                    result.push(iterator[splitedPath[0]][splitedPath[1]]);
+                } 
+            }
+           
+            return result;
+        }
+
+        let testData3 = [
+            {"name":"Vasya","email":"vasya@example.com","age":20,"skills":{"php":0,"js":-1,"madness":10,"rage":10}},
+            {"name":"Dima","email":"dima@example.com","age":34,"skills":{"php":5,"js":7,"madness":3,"rage":2}},
+            {"name":"Colya","email":"colya@example.com","age":46,"skills":{"php":8,"js":-2,"madness":1,"rage":4}},
+            {"name":"Misha","email":"misha@example.com","age":16,"skills":{"php":6,"js":6,"madness":5,"rage":2}},
+            {"name":"Ashan","email":"ashan@example.com","age":99,"skills":{"php":0,"js":10,"madness":10,"rage":1}},
+            {"name":"Rafshan","email":"rafshan@example.com","age":11,"skills":{"php":0,"js":0,"madness":0,"rage":10}}
+        ];
+
+        console.log(array_pluck(testData3, 'skills.php'));
+
+        //testing, thinking etc
+        // let query = "skillsphp";
+        // console.log(query.includes("."));
+        // let some = "skillsphp";
+        // let ga = some.split('.');
+        // console.log(ga[0]);
+        // console.log(typeof(ga[1]));
+        // console.log(testData3[0][ga[0]][ga[1]]);
+        // console.log(testData3[0]['skills']['php']);
+
+        // Sorry, but i dont know how create this func for ("крч, всё познания англ закончились, прошу прощения, не могу избавиться от привязки максимум двумерному массиву, пробывал сделать что-то подобное, но не не обвинчалось успехом, решение говно, знаю, как вообщем и везде, но не могу тратить ещё больше времени на улучшение качества кода")
+    </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+*, *:before, *:after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.modal{
+    position: absolute;
+    max-width: 600px;
+    width: 100%;
+    height: 400px; 
+    background-color: black;
+    transition: 0.3s top;
+    /*first way*/
+    /* left: 50%;
+    transform: translateX(-50%);
+    top: 50%;
+    transform: translateY(-50%) translateX(-50%); */
+
+    /*second way*/
+    left: 0; 
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin-left: auto; 
+    margin-right: auto; 
+    margin-top: auto; 
+    margin-bottom: auto; 
+    z-index: 12;
+}
+
+/*==========*/
+
+/* second way i found in stackoverflow and i think its worse than first one because not beautiful ^_^ */
+/* i dont know how to animete modal window without js, especially addEventListener ('click', func(e){ btn.classList.toggle }*/
+/* maybe im stupid but not dishonest */

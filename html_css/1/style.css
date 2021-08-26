@@ -1,0 +1,51 @@
+*, *:before, *:after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.test__container{
+    max-width: 1440px;
+    max-height: 600px;
+    margin: 0 auto;
+    padding: 100px 100px;
+    border: 2px solid red;
+}
+
+
+
+.test__item{
+    width: 20%;
+    height: 50px;
+    background-color: black;
+    border: 1px solid yellow;
+}
+
+.test__item:not(:last-child){
+    margin-right: 15px;
+}
+
+/*==========*/
+
+.flex{
+    display: flex;
+    justify-content: center; /* or justify-content: space-between;*/
+    align-items: center;
+}
+
+
+.grid{
+
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 15px;
+}
+
+.grid .test__item{
+    width: auto;
+    margin: 0;
+}
+/* may be its possible done with inline block and float, but in modern web i dont see another ways than those once */

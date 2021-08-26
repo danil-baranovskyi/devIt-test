@@ -1,0 +1,54 @@
+*, *:before, *:after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.test{
+    padding: 100px;
+    text-align: center;
+}
+
+.btn{
+    box-sizing: border-box;
+    padding: 14px 18px;
+    border: none;
+    background-color: #000;
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: 0.3s all;
+    border: 2px solid #000;
+}
+.btn:hover{
+    background-color: #fff;
+    color: #000;
+}
+
+.btn:focus {
+    color: #fff;
+    background-color: #555;
+}
+
+.danger{
+    border-color: red;
+    background-color: #fff;
+    color: #333;
+}
+
+.disabled{
+    border-color: #666;
+    color: #333;
+    background-color: #666;
+}
+/*  
+    let btn = document.querySelector('.btn');
+    btn.addEventListener('click', function(e){
+        e.preventDefault();
+    });
+*/
+/*==========*/
+

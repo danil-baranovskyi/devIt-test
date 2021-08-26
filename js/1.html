@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        function cloneDeep(obj){
+            return Object.assign({}, obj)
+        }
+
+        let obj1 = {
+            name: 'Danil'
+        }
+        let obj2 = {
+            name: 'Kirillka'
+        }
+
+
+        obj2 = cloneDeep(obj1);
+
+        console.log("Obj 2 name: " + obj2.name);
+
+        obj2.name = "Absolutelly new name!!!";
+
+        console.log("Obj 2 new name: " + obj2.name);
+        console.log("Obj 1 name: " + obj1.name);
+
+    </script>
+</body>
+</html>

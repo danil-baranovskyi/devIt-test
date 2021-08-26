@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        function unfolding(arr){
+            return arr.reduce(function(sum, current){
+                        return sum.concat(current);
+                    });
+        }
+
+        let arrays = [[1, 2, 3], [4, 5], [6]];
+
+        console.log(unfolding(arrays));
+
+        // https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce#example_flatten_an_array_of_arrays
+
+        // this page helped me
+    </script>
+</body>
+</html>
